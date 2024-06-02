@@ -1,0 +1,83 @@
+/* Footer.css */
+
+.top {
+    margin-top: 2%;
+}
+
+.footer {
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.socialIcons {
+    margin-bottom: 10px;
+}
+
+.iconLink {
+    text-decoration: none;
+}
+
+.icons {
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+.icons:hover{
+    color: blue;
+}
+
+
+.navLinks {
+    list-style: none;
+    padding: 0;
+}
+
+.navLinkItem {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.navLink {
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s; /* Add transition for color change */
+}
+
+.navLink:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s; /* Add transition for underline color change */
+}
+
+.navLink:hover::after {
+    background-color: #007bff; /* Set the color of the underline on hover */
+}
+
+@media screen and (max-width: 600px) {
+    .footer {
+        padding: 20px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .icon {
+        font-size: 20px; /* Reduce icon size for smaller screens */
+    }
+
+    .navLinkItem {
+        margin: 0 5px; /* Reduce margin for smaller screens */
+    }
+}
