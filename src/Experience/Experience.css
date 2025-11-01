@@ -1,0 +1,188 @@
+.about-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.about-container {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  text-align: left; /* Make sure the container does not center text */
+  display: block; /* Ensure it's not using flex or grid */
+}
+.total-duration {
+  padding: 40px;
+  font-family: Arial, sans-serif;
+  text-align: right; /* Make sure the container does not center text */
+  display: block; /* Ensure it's not using flex or grid */
+}
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .about-header {
+    flex-direction: column; /* Stacks title and total duration vertically */
+    align-items: flex-start; /* Aligns items to the left */
+  }
+
+  .total-duration {
+    text-align: left; /* Aligns text to the left on mobile for consistency */
+    margin-top: 10px; /* Adds spacing between title and total duration */
+    width: 100%; /* Ensures it spans the width of the container */
+  }
+}
+/* Keep the rest of the styles intact */
+.experience-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Increased spacing between cards */
+  justify-content: center;
+}
+.card {
+  width: 400px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out;
+  overflow: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card-logo {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin: 10px auto;
+  display: block;
+}
+
+.card-details {
+  padding: 20px;
+}
+
+.card-details h3 {
+  margin: 15px 0;
+  font-size: 22px;
+  color: #333;
+}
+
+.card-details p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.card-details strong {
+  color: #000;
+}
+
+.card-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-row strong {
+  flex: 1;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+.card-row span {
+  flex: 2;
+  text-align: right;
+  font-size: 16px;
+  color: #555;
+}
+
+.card-extra {
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  color: #555;
+  animation: fadeIn 0.3s ease-in-out;
+  display: block !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* For very small devices, like mobile phones */
+@media (max-width: 480px) {
+  .about-container {
+    padding: 20px; /* Less padding on mobile */
+  }
+
+  .about-container h1 {
+    font-size: 24px; /* Smaller font size for mobile */
+  }
+
+  .experience-cards {
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Reduce the gap between stacked cards */
+  }
+
+  .card {
+    width: 100%; /* Full width of the screen on mobile */
+    max-width: 100%; /* Ensure the card is full width */
+  }
+
+  .card-logo {
+    height: 100px; /* Smaller logo size on mobile */
+  }
+
+  .card-details {
+    padding: 10px; /* Less padding on mobile */
+  }
+
+  .card-details h3 {
+    font-size: 18px; /* Smaller text for company name */
+  }
+
+  .card-details p {
+    font-size: 14px; /* Smaller text for descriptions */
+  }
+
+  .card-row strong,
+  .card-row span {
+    font-size: 14px; /* Smaller text for rows */
+  }
+
+  .card-extra {
+    font-size: 12px; /* Smaller font size for extra details */
+  }
+}
+.description-title {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  font-size: 16px; /* Adjust size as needed */
+  margin-bottom: 8px; /* Add some spacing below */
+  color: #333; /* Optional: Set a color for better visibility */
+}
+
+.description-title::after {
+  content: '';
+  display: block;
+  width: 100%; /* Matches the width of the text */
+  height: 2px; /* Thickness of the underline */
+  background-color: #000; /* Color of the underline */
+  margin-top: 4px; /* Space between text and underline */
+}

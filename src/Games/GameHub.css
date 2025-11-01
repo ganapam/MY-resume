@@ -1,0 +1,261 @@
+/* ==============================
+   MAIN LAYOUT
+============================== */
+.gamehub {
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #0d0c1d, #1f1b3a, #0a0a23);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.gamehub-title {
+  font-size: 2.5rem;
+  color: #00e0ff;
+  text-shadow: 0 0 10px #00e0ff, 0 0 20px #0077ff;
+  margin-bottom: 30px;
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.game-buttons button {
+  background: transparent;
+  border: 2px solid #00e0ff;
+  color: #00e0ff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.game-buttons button:hover {
+  background: #00e0ff;
+  color: #0a0a23;
+  box-shadow: 0 0 15px #00e0ff;
+}
+
+.game-area {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.2);
+  box-sizing: border-box;
+}
+
+/* ==============================
+   SNAKE GAME
+============================== */
+.snake-game canvas {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  border-radius: 10px;
+  background: #111a2a;
+  border: 2px solid #00e0ff;
+  box-shadow: 0 0 10px #00e0ff;
+}
+
+.snake-controls button {
+  margin: 5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #00e0ff;
+  color: #0a0a23;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-controls {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arrow-controls button {
+  background: #00e0ff;
+  color: #0a0a23;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.arrow-controls button:hover {
+  background: #1de9b6;
+  box-shadow: 0 0 10px #00ffbf;
+}
+
+.arrow-middle {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* ==============================
+   MEMORY GAME
+============================== */
+.memory-game {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.memory-card {
+  padding: 18px;
+  font-size: 24px;
+  border-radius: 8px;
+  background: #0b1220;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.memory-card.flipped {
+  background: #fff;
+  color: #000;
+  transform: rotateY(180deg);
+}
+
+.memory-stats button {
+  margin-top: 8px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #00e0ff;
+  color: #0a0a23;
+  border: none;
+  cursor: pointer;
+}
+
+/* ==============================
+   BONUS ITEMS
+============================== */
+.bonus-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bonus-item {
+  position: absolute;
+  top: -10px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+/* ==============================
+   RESPONSIVE FIXES
+============================== */
+@media (max-width: 768px) {
+  .gamehub-title {
+    font-size: 1.8rem;
+  }
+
+  .game-area {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .snake-game canvas {
+    max-width: 320px;
+  }
+
+  .memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .arrow-controls button {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .memory-card {
+    font-size: 18px;
+    padding: 12px;
+  }
+
+  .snake-game canvas {
+    max-width: 280px;
+  }
+}
+.speed-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.speed-controls p {
+  margin: 0;
+  font-weight: bold;
+}
+
+.speed-controls button {
+  background: #ccc;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.speed-controls button.active-speed {
+  background: #00b894;
+  color: white;
+  transform: scale(1.05);
+}
+
+.speed-controls button:hover {
+  background: #aaa;
+}
+

@@ -1,0 +1,262 @@
+/* ==========================
+   🚘 EDUCATION SECTION (Mercedes-Benz Premium Style)
+   ========================== */
+.education-container1 {
+  margin: 5%;
+  text-align: center !important;
+  animation: fadeSlideIn 1s ease-in-out;
+}
+
+/* Heading Style */
+.education-heading {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #00ADEF; /* Mercedes Blue */
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #00ADEF, #C0C0C0, #00ADEF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerText 4s infinite linear;
+  transition: all 0.4s ease;
+  margin-bottom: 20px; /* ✅ adds gap between boxes */
+}
+
+.education-heading::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #00ADEF, #C0C0C0);
+  margin: 10px auto 0;
+  transition: width 0.5s ease;
+}
+
+.education-heading:hover::after {
+  width: 60%;
+}
+
+.education-heading:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 12px #00ADEF);
+}
+
+/* ==========================
+   🎓 EDUCATION DETAILS CARD
+   ========================== */
+
+.education-details {
+  position: relative;
+  background: linear-gradient(145deg,#00ADEF, #f2f4f6, #E5E5E5);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px auto;
+  max-width: 700px;
+  box-shadow: 0 5px 25px rgba(0, 173, 239, 0.2);
+  transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow: hidden;
+}
+
+.education-details::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, #00ADEF, #C0C0C0, #00ADEF);
+  animation: rotateShine 8s linear infinite;
+  opacity: 0.08;
+}
+
+.education-details:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(0, 173, 239, 0.3);
+}
+
+/* Text Styles */
+.education-degree {
+  font-size: 1.9rem;
+  color: #000;
+  font-weight: 700;
+}
+
+.education-school {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.education-year,
+.cgpa {
+  font-size: 1rem;
+  color: #00ADEF;
+  font-weight: 600;
+}
+
+/* ==========================
+   🧾 CERTIFICATES SECTION
+   ========================== */
+
+.certificate {
+  margin: 50px 5%;
+  text-align: center;
+}
+
+.certificates-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #E5E5E5, #FFFFFF);
+  border: 1px solid #C0C0C0;
+  border-radius: 12px;
+  padding: 20px 30px;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  box-shadow: 0 4px 20px rgba(0, 173, 239, 0.15);
+  position: relative;
+  overflow: hidden;
+   margin-bottom: 20px; /* ✅ adds gap between boxes */
+}
+
+.certificates-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,173,239,0.1), rgba(255,255,255,0.3), rgba(0,173,239,0.1));
+  animation: shimmer 4s infinite;
+}
+
+.certificates-header:hover {
+  transform: scale(1.03);
+  background: linear-gradient(90deg, #f8fbff, #eaf6ff);
+  box-shadow: 0 10px 35px rgba(0, 173, 239, 0.25);
+}
+
+/* Icon */
+.icon {
+  font-size: 1.8rem;
+  color: #00ADEF;
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.icon:hover {
+  transform: rotate(360deg);
+  color: #000;
+}
+
+/* ==========================
+   📜 CERTIFICATE DETAILS
+   ========================== */
+
+.certificates-details {
+  display: none;
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 25px;
+  box-shadow: 0 6px 25px rgba(0, 173, 239, 0.2);
+  margin-top: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeZoomIn 0.7s ease;
+}
+
+.certificates-details.active {
+  display: block;
+}
+
+/* ==========================
+   🖼️ IMAGE + PDF STYLING
+   ========================== */
+
+iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 173, 239, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 173, 239, 0.3);
+}
+
+/* ==========================
+   🌈 ANIMATIONS
+   ========================== */
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeZoomIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes shimmerText {
+  0% { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+@keyframes rotateShine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================
+   📱 RESPONSIVE DESIGN
+   ========================== */
+
+@media (max-width: 768px) {
+  .education-heading {
+    font-size: 2rem;
+  }
+
+  .education-details {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .certificates-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  iframe {
+    height: 450px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-heading {
+    font-size: 1.6rem;
+  }
+
+  .education-details h2 {
+    font-size: 1.2rem;
+  }
+
+  .education-details p {
+    font-size: 0.9rem;
+  }
+
+  iframe {
+    height: 350px;
+  }
+}
