@@ -196,3 +196,24 @@ select{
   transition:.3s;
 }
 select:hover{ transform:scale(1.03); }
+.quiz-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 120px;
+
+  background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1501434449514-1f6a5f87ed2c?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1501850215857-7b57b68a79f4?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1501975558162-0be7f63be489?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80://images.unsplash.com/photo-1523978591478-c753949ff840?auto=format&fit=crop&w=1600&q=80");
+  /* replace image link anytime */
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: 0.6s ease-in-out;
+}
+
+/* When questions appear → remove that image automatically */
+.quiz-active {
+  background-image: none !important;
+  background: #f2f2f2;
+}

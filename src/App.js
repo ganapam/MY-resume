@@ -14,10 +14,13 @@ import Feedback from './Feedback/Feedback';
 import MoreGames from './Games/MoreGames/MoreGames';
 import QuizGame from './Games/MoreGames/QuizGame/Quizgame'
 import LeftPanell from './Games/MoreGames/leftsidepanell'
+import Sound from './backgoundsound'
 
 const App = () => {
+
   return (
     <Router>
+      <Sound /> 
       <div>
         <Routes>
           <Route path="/" element={<About />} />
