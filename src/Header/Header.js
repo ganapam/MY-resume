@@ -46,6 +46,7 @@ const Header = () => {
           <li className={location.pathname === "/contact" ? "active" : ""}><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
           <li className={location.pathname === "/experience" ? "active" : ""}><Link to="/experience" onClick={toggleMenu}>Experience</Link></li>
           <li className={location.pathname === "/gamehub" ? "active" : ""}><Link to="/gamehub" onClick={toggleMenu}>GameHub</Link></li>
+          <li className={location.pathname === "/feedback" ? "active" : ""}><Link to="/feedback" onClick={toggleMenu}>Feedback</Link></li>
         </ul>
       </nav>
     </header>

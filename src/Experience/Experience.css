@@ -186,3 +186,47 @@
   background-color: #000; /* Color of the underline */
   margin-top: 4px; /* Space between text and underline */
 }
+/* Normal Image (inside dropdown) */
+.normal-image-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 15px auto;
+  cursor: zoom-in;
+}
+
+.normal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* Fullscreen Overlay */
+.fullscreen-image-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+
+.fullscreen-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+/* Responsive mobile scaling */
+@media (max-width: 600px) {
+  .fullscreen-image {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+}

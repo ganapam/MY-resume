@@ -89,6 +89,11 @@ const Footer = () => {
               GameHub
             </Link>
           </li>
+          <li className="navLinkItem">
+            <Link to="/feedback" className={`navLink ${location.pathname === '/feedback' ? 'active' : ''}`}>
+              Feedback
+            </Link>
+          </li>
         </ul>
 
         {/* 🦁🐘🦒🐆🦓 Animal animation */}

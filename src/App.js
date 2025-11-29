@@ -10,7 +10,10 @@ import Experience from './Experience/Experience';
 import GameHub from './Games/GameHub';
 import ReactionGame from "./Games/ReactionGame";
 import TicTacToe from "./Games/TicTacToe";
-
+import Feedback from './Feedback/Feedback';
+import MoreGames from './Games/MoreGames/MoreGames';
+import QuizGame from './Games/MoreGames/QuizGame/Quizgame'
+import LeftPanell from './Games/MoreGames/leftsidepanell'
 
 const App = () => {
   return (
@@ -27,6 +30,10 @@ const App = () => {
           <Route path="/gamehub" element={<GameHub />} />
            <Route path="/reactiongame" element={<ReactionGame />} />
           <Route path="/tictactoe" element={<TicTacToe />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/moregames" element={<MoreGames />} />
+          <Route path="/quizgame" element={<QuizGame />} />
+          <Route path="/leftpanell" element={<LeftPanell />} />
         </Routes>
       </div>
     </Router>

@@ -1,14 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import "./GameHub.css";
 import Header from "../Header/Header";
 import Fotter from "../Fotter/Fotter";
 import ReactionGame from "./ReactionGame";
 import TicTacToe from "./TicTacToe";
+import MoreGames from './MoreGames/MoreGames';
+import { useNavigate } from "react-router-dom"; 
+
 
 
 const GameHub = () => {
+  const navigate = useNavigate();
   const [activeGame, setActiveGame] = useState(null);
-  const [snakeSpeed, setSnakeSpeed] = useState(250); // default speed
+  const [snakeSpeed, setSnakeSpeed] = useState(400); // default speed
 
 
   // ========================= BONUS EFFECT =========================
@@ -108,46 +112,69 @@ const GameHub = () => {
   };
 
   const snakeTick = () => {
-    setSnake((prevSnake) => {
-      const head = { ...prevSnake[0] };
-      const direction = dirRef.current;
-      if (direction === "UP") head.y -= 1;
-      if (direction === "DOWN") head.y += 1;
-      if (direction === "LEFT") head.x -= 1;
-      if (direction === "RIGHT") head.x += 1;
+  setSnake(prevSnake => {
+    let head = { ...prevSnake[0] };
 
-      if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize) {
-        setSnakeGameOver(true);
-        stopSnakeLoop();
-        return prevSnake;
-      }
+    if (dirRef.current === "UP") head.y--;
+    if (dirRef.current === "DOWN") head.y++;
+    if (dirRef.current === "LEFT") head.x--;
+    if (dirRef.current === "RIGHT") head.x++;
 
-      for (let i = 0; i < prevSnake.length; i++) {
-        if (prevSnake[i].x === head.x && prevSnake[i].y === head.y) {
-          setSnakeGameOver(true);
-          stopSnakeLoop();
-          return prevSnake;
-        }
-      }
+    if (head.x < 0 || head.x >= boardSize || head.y < 0 || head.y >= boardSize) {
+      stopSnakeLoop(); setSnakeGameOver(true); return prevSnake;
+    }
+    if (prevSnake.some(seg => seg.x === head.x && seg.y === head.y)) {
+      stopSnakeLoop(); setSnakeGameOver(true); return prevSnake;
+    }
 
-      const newSnake = [head, ...prevSnake];
-      if (head.x === food.x && head.y === food.y) {
-        setFood({
-          x: Math.floor(Math.random() * boardSize),
-          y: Math.floor(Math.random() * boardSize),
-        });
-        setSnakeScore((s) => {
-          const newScore = s + 1;
-          if (newScore % 5 === 0) triggerBonus();
-          return newScore;
-        });
-      } else {
-        newSnake.pop();
-      }
-      drawSnake(newSnake);
-      return newSnake;
-    });
-  };
+    let newSnake = [head, ...prevSnake];
+
+    // 🟢 check against latest foodRef, not stale state
+    if (head.x === foodRef.current.x && head.y === foodRef.current.y) {
+      generateNewFood(newSnake);
+      setSnakeScore(s => {
+        const sc = s + 1;
+        if(sc % 5 === 0) triggerBonus();
+        return sc;
+      });
+    } else newSnake.pop();
+
+    return newSnake;
+  });
+};
+
+
+const lastFoodPositions = useRef([]); 
+const foodRef = useRef(food);
+useEffect(() => { foodRef.current = food; }, [food]);
+const generateNewFood = (snakeBody) => {
+  let newFood;
+  let tries = 0;
+  
+  do {
+    newFood = {
+      x: Math.floor(Math.random() * boardSize),
+      y: Math.floor(Math.random() * boardSize),
+    };
+    tries++;
+  } while (
+    snakeBody.some(s => s.x === newFood.x && s.y === newFood.y) ||
+    lastFoodPositions.current.some(p => p.x === newFood.x && p.y === newFood.y)  // ⛔ avoid repeat place
+  );
+
+  // 🔥 remember last 3 positions
+  lastFoodPositions.current.push(newFood);
+  if(lastFoodPositions.current.length > 3) lastFoodPositions.current.shift();
+
+  setFood(newFood);
+};
+
+
+useEffect(() => {
+  drawSnake(snake);
+}, [snake, food]);
+
+
 
   const drawSnake = (snakeToDraw) => {
     if (!canvasRef.current) return;
@@ -244,6 +271,7 @@ const GameHub = () => {
           <button onClick={() => setActiveGame("memory")}>🧩 Memory</button>
           <button onClick={() => setActiveGame("reaction")}>⚡ Reaction</button>
          <button onClick={() => setActiveGame("tictactoe")}>⭕ Tic Tac Toe</button>
+         <button onClick={() => navigate("/moregames")}>More Games</button>
         </div>
 
         <div className="game-area">

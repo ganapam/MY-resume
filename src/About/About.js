@@ -233,7 +233,7 @@ useEffect(() => {
 
         <div className="profile-container">
           <div className="profile-wrapper">
-            <img className="profile-photo" src="/profile.PNG" alt="Profile" />
+            <img className="profile-photo" src="/profile.png" alt="Profile" />
             <div className="profile-overlay"></div>
           </div>
         </div>

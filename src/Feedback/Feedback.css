@@ -1,0 +1,123 @@
+/* 🌟 Screen Background */
+.feedback-container{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px;
+  background:
+  linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.65)),
+  url("https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d") center/cover;
+}
+
+/* 📦 Form Card */
+.feedback-box{
+  width:460px;
+  background:rgba(255,255,255,0.92);
+  border-radius:15px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0px 18px 40px rgba(0,0,0,0.4);
+  animation:fadeIn .7s ease;
+}
+
+/* Title */
+.feedback-box h2{
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:20px;
+  color:#0056ff;
+  text-shadow:0 0 12px rgba(0,120,255,0.6);
+}
+
+/* Inputs & Textarea */
+.feedback-box input,
+.feedback-box textarea{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  font-size:15px;
+  border-radius:10px;
+  border:1px solid #b1b8ca;
+  outline:none;
+  resize:none;
+  background:#ffffffd8;
+}
+
+/* ⭐ RATING DESIGN */
+.rating-box{
+  margin:18px 0;
+  padding:12px 0;
+  border-radius:10px;
+  background:rgba(255,255,255,0.65);
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+
+.star-item{
+  font-size:33px;
+  cursor:pointer;
+  color:#98a0b3;
+  transition:.25s;
+}
+.star-item.filled{
+  color:#ffb100;
+  transform:scale(1.27);
+  text-shadow:0 0 14px rgba(255,206,0,0.9);
+}
+
+/* Submit Button */
+.feedback-box button{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  background:#0056ff;
+  color:white;
+  font-size:18px;
+  border-radius:10px;
+  border:none;
+  cursor:pointer;
+  font-weight:bold;
+  transition:.3s;
+}
+.feedback-box button:hover{
+  background:#003bcc;
+}
+
+/* 🎉 Celebration Popup */
+.success-popup{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%) scale(1.1);
+  width:450px;
+  background:white;
+  padding:30px;
+  text-align:center;
+  border-radius:15px;
+  box-shadow:0px 15px 30px rgba(0,0,0,0.3);
+  animation:popup .45s ease-out forwards;
+  z-index:1000;
+}
+
+.success-popup h3{
+  font-size:22px;
+  color:#00b84f;
+  margin-bottom:8px;
+}
+
+@keyframes popup{
+  from{opacity:0;transform:translate(-50%,-50%) scale(0.6);}
+  to{opacity:1;transform:translate(-50%,-50%) scale(1);}
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:520px){
+  .feedback-box{width:92%;}
+  .success-popup{width:90%;}
+}

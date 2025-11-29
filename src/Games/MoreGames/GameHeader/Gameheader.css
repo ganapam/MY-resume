@@ -1,0 +1,84 @@
+/* ===================== FIXED RESPONSIVE HEADER ===================== */
+.game-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;                     /* MUST stay fixed always */
+  background: #0a0f19;
+  border-bottom: 3px solid #00e1ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:12px;
+  padding: 0 25px;
+  z-index: 4000;                    /* must be above sidebar */
+  box-shadow: 0px 0px 12px rgba(0,255,255,.45);
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+
+/* ===================== TITLE ===================== */
+.gh-title {
+  color: #00eaff;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+/* ===================== NAVIGATION BUTTONS ===================== */
+.gh-nav {
+  display: flex;
+  gap: 12px;
+  align-items:center;
+}
+
+.gh-nav button {
+  background: #00eaff;
+  padding: 8px 16px;
+  color: #001219;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gh-nav button:hover {
+  background:#19ff73;
+  transform: scale(1.07);
+}
+
+
+/* ========== RESPONSIVE FIX — CORE PART ========== */
+/* Header must NOT resize — this was breaking sidebar */
+@media(max-width:900px){
+  .game-header{
+    height:75px !important;     /* Keep constant height */
+    padding:0 15px;
+    justify-content:space-between;
+  }
+
+  .gh-nav button{
+    font-size:14px;
+    padding:6px 12px;
+  }
+
+  .gh-title{
+    font-size:22px;
+  }
+}
+
+/* Smaller mobile screens */
+@media(max-width:650px){
+  .game-header{
+    height:75px !important;
+  }
+  
+  .gh-nav{
+    gap:6px;
+  }
+}
