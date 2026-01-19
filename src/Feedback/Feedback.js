@@ -31,28 +31,37 @@ const Feedback = () => {
   }
 
   // 📤 SUBMIT FEEDBACK
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    if (formData.rating === 0) {
-      alert("Please select star rating ⭐");
-      return;
-    }
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    fetch(scriptURL, {
-      method: "POST",
-      mode: "no-cors",
-      body: JSON.stringify(formData)
-    })
-    .then(() => {
-      setShowSuccess(true);
-      fireConfetti();
-      setFormData({ name: "", rating: 0, comments: "" });
+  if (formData.rating === 0) {
+    alert("Please select star rating ⭐");
+    return;
+  }
 
-      setTimeout(()=>setShowSuccess(false),3500);
-    })
-    .catch(()=>alert("❌ Failed! Check URL.."));
-  };
+  const formBody = new URLSearchParams({
+    name: formData.name,
+    rating: formData.rating,
+    comments: formData.comments,
+  });
+
+  fetch(scriptURL, {
+    method: "POST",
+    mode: "no-cors", // ✅ REQUIRED for Google Script
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: formBody.toString(),
+  });
+
+  // Assume success (Google Script executed)
+  setShowSuccess(true);
+  fireConfetti();
+  setFormData({ name: "", rating: 0, comments: "" });
+  setTimeout(() => setShowSuccess(false), 3500);
+};
+
+
 
   return (
     <div>
