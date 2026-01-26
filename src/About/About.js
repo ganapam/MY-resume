@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Header from "../Header/Header";
 import Fotter from "../Fotter/Fotter";
 import "./About.css";
-
+import Calendar from '../About/Calendar'
 
 // 🌍 All translations (you can add more if needed)
 const translations = {
@@ -291,6 +291,10 @@ useEffect(() => {
           </div>
         </div>
       </div>
+                <div className="calendar-section">
+  <h2 className="calendar-title">📅 Calendar</h2>
+  <Calendar />
+</div>
       <Fotter />
     </div>
   );
