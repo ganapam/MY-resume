@@ -109,7 +109,7 @@ const Footer = () => {
         <div className="animal">🐒</div>
 
         <div className="copyright">
-          © {currentYear} GMR. All Rights Reserved.
+          © 2023{currentYear > 2023 ? `–${currentYear}` : ''} GMR. All Rights Reserved.
         </div>
 
         {/* 🌌 Firefly animation elements */}
